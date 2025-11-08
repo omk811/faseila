@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شرح الفاصلة</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100%;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .comma-display {
+            font-size: 120px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-right: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 32px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .usage-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .usage-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .usage-item:hover {
+            transform: translateX(-3px);
+        }
+
+        .usage-item-title {
+            font-weight: bold;
+            color: #f5576c;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .example {
+            background: #e3f2fd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            line-height: 1.6;
+            border-right: 3px solid #2196f3;
+        }
+
+        .highlight {
+            color: #f5576c;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .writing-guide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            font-size: 24px;
+            flex-wrap: wrap;
+        }
+
+        .word-box {
+            background: #667eea;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .comma-box {
+            background: #f5576c;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .exercise-box {
+            background: #fff3e0;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .exercise-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-right: 4px solid #ff9800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .exercise-item:hover {
+            background: #fffbf5;
+            transform: translateX(-5px);
+        }
+
+        .exercise-question {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .exercise-answer {
+            display: none;
+            background: #e8f5e9;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #2e7d32;
+            border-right: 3px solid #4caf50;
+        }
+
+        .exercise-item.active .exercise-answer {
+            display: block;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 12px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .summary-point {
+            margin: 15px 0;
+            padding-right: 25px;
+            position: relative;
+        }
+
+        .summary-point::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .quiz-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .quiz-section-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quiz-section-icon {
+            font-size: 24px;
+        }
+
+        .quiz-question {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-right: 4px solid #667eea;
+        }
+
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .question-number {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50%;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .quiz-btn {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .quiz-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .quiz-btn.multi {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .quiz-btn.selected {
+            background: #667eea;
+            color: white;
+        }
+
+        .quiz-btn.correct {
+            background: #4caf50;
+            border-color: #4caf50;
+            color: white;
+        }
+
+        .quiz-btn.incorrect {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+
+        .quiz-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-right: 4px solid #4caf50;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #c62828;
+            border-right: 4px solid #f44336;
+        }
+
+        .quiz-result {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .result-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .result-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .comma-display {
+                font-size: 80px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <div class="header">
+    <h1 id="main-title">علامة الترقيم: الفاصلة</h1>
+    <div class="comma-display">
+     ،
+    </div>
+   </div>
+   <div class="content"><!-- التعريف -->
+    <div class="section">
+     <div class="section-title"><span class="icon">📖</span> <span id="definition-title">ما هي الفاصلة؟</span>
+     </div>
+     <div class="definition-box">
+      الفاصلة علامة من علامات الترقيم، تستخدم ليقف القارئ عندها وقفة خفيفة (لالتقاط النفس وفهم المعنى)
+     </div>
+    </div><!-- متى نستخدمها -->
+    <div class="section">
+     <div class="section-title"><span class="icon">🎯</span> <span id="usage-title">متى نستخدم الفاصلة؟</span>
+     </div>
+     <ul class="usage-list">
+      <li class="usage-item">
+       <div class="usage-item-title">
+        أ- بين الجمل القصيرة المترابطة بالمعنى
+       </div>
+       <div class="example">
+        خالد صديق مخلص<span class="highlight">،</span> لا يخون العهد<span class="highlight">،</span> ولا يخلف الوعد.
+       </div>
+       <div class="example">
+        الصدق فضيلة<span class="highlight">،</span> والكذب رذيلة<span class="highlight">،</span> والحسد منقصة وعجز.
+       </div></li>
+      <li class="usage-item">
+       <div class="usage-item-title">
+        ب- بين أنواع الشيء وأقسامه
+       </div>
+       <div class="example">
+        في السنة أربعة فصول: صيف<span class="highlight">،</span> وخريف<span class="highlight">،</span> وشتاء<span class="highlight">،</span> وربيع.
+       </div>
+       <div class="example">
+        أنواع الفعل ثلاثة: فعل ماضٍ<span class="highlight">،</span> فعل مضارع<span class="highlight">،</span> فعل أمر.
+       </div></li>
+      <li class="usage-item">
+       <div class="usage-item-title">
+        ت- بعد لفظ المنادى
+       </div>
+       <div class="example">
+        يا محمد<span class="highlight">،</span> ادرس بجد.
+       </div>
+       <div class="example">
+        يا علي<span class="highlight">،</span> أطع والديك.
+       </div></li>
+      <li class="usage-item">
+       <div class="usage-item-title">
+        ث- بعد حروف الجواب (نعم، لا، بلا، كلا)
+       </div>
+       <div class="example">
+        لا<span class="highlight">،</span> الجو مشمس.
+       </div>
+       <div class="example">
+        نعم<span class="highlight">،</span> الجو ليس ماطراً.
+       </div></li>
+     </ul>
+    </div><!-- كيف نكتبها -->
+    <div class="section">
+     <div class="section-title"><span class="icon">✍️</span> <span id="writing-title">كيف نكتبها؟</span>
+     </div>
+     <div class="writing-guide">
+      <div class="word-box">
+       الكلمة
+      </div>
+      <div class="comma-box">
+       ،
+      </div>
+      <div style="font-size: 20px; color: #666;">
+       مسافة
+      </div>
+      <div class="word-box">
+       الكلمة
+      </div>
+     </div>
+     <div class="example" style="margin-top: 20px; text-align: center; font-size: 22px;">
+      أحب الشعر<span class="highlight">،</span> والقصص.
+     </div>
+    </div><!-- أمثلة تطبيقية -->
+    <div class="section">
+     <div class="section-title"><span class="icon">💡</span> <span id="examples-title">أمثلة تطبيقية</span>
+     </div>
+     <div class="example">
+      ما خاب تلميذ مجتهد<span class="highlight">،</span> ولا شاب عمل بنصيحة والديه<span class="highlight">،</span> ولا رجل مخلص في عمله.
+     </div>
+     <div class="example">
+      خالد طالب ذكي<span class="highlight">،</span> يدرس بجد<span class="highlight">،</span> ويساعد زملاءه<span class="highlight">،</span> ولا يؤذي أحداً.
+     </div>
+     <div class="example">
+      أقسام الكلمة: اسم<span class="highlight">،</span> وفعل<span class="highlight">،</span> وحرف.
+     </div>
+     <div class="example">
+      عندي أقلام<span class="highlight">،</span> وكتب<span class="highlight">،</span> وأوراق.
+     </div>
+    </div><!-- تمرين تطبيقي -->
+    <div class="section">
+     <div class="section-title"><span class="icon">🎓</span> <span id="exercise-title">تمرين تطبيقي</span>
+     </div>
+     <div class="exercise-box">
+      <p style="font-weight: bold; margin-bottom: 20px; font-size: 18px;">اضغط على كل جملة لمعرفة سبب استخدام الفاصلة:</p>
+      <div class="exercise-item">
+       <div class="exercise-question">
+        بلا<span class="highlight">،</span> ذاكرت دروسي.
+       </div>
+       <div class="exercise-answer">
+        ✓ أتت الفاصلة بعد حرف جواب (بلا)
+       </div>
+      </div>
+      <div class="exercise-item">
+       <div class="exercise-question">
+        يا طالب العلم<span class="highlight">،</span> ذاكر دروسك جيداً.
+       </div>
+       <div class="exercise-answer">
+        ✓ وقعت الفاصلة بعد منادى (يا طالب العلم)
+       </div>
+      </div>
+      <div class="exercise-item">
+       <div class="exercise-question">
+        الجمل نوعان: جملة اسمية<span class="highlight">،</span> وجملة فعلية.
+       </div>
+       <div class="exercise-answer">
+        ✓ وقعت الفاصلة بين الأنواع والأقسام
+       </div>
+      </div>
+      <div class="exercise-item">
+       <div class="exercise-question">
+        دخل المعلم إلى الصف<span class="highlight">،</span> ووضع حقيبته<span class="highlight">،</span> وأمسك القلم.
+       </div>
+       <div class="exercise-answer">
+        ✓ وقعت الفاصلة بين جمل قصيرة مترابطة بالمعنى
+       </div>
+      </div>
+      <div class="exercise-item">
+       <div class="exercise-question">
+        أنت طموح<span class="highlight">،</span> وتمتلك قدرات عالية.
+       </div>
+       <div class="exercise-answer">
+        ✓ وقعت الفاصلة بين جمل قصيرة مترابطة بالمعنى
+       </div>
+      </div>
+      <div class="exercise-item">
+       <div class="exercise-question">
+        توجه الصياد إلى البحر<span class="highlight">،</span> واصطاد سمكاً.
+       </div>
+       <div class="exercise-answer">
+        ✓ وقعت الفاصلة بين جمل قصيرة مترابطة بالمعنى
+       </div>
+      </div>
+     </div>
+    </div><!-- الخلاصة -->
+    <div class="section">
+     <div class="section-title"><span class="icon">📝</span> <span id="summary-title">الخلاصة</span>
+     </div>
+     <div class="summary-box">
+      <div class="summary-point"><strong>الفاصلة</strong> هي إحدى علامات الترقيم، وتعني الوقوف على الكلام وقفة يسيرة، وهي كثيرة الاستخدام.
+      </div>
+      <div class="summary-point">
+       تكتب الفاصلة على هذا النحو <span class="highlight">(،)</span>، وتأتي ملاصقة للكلمة التي سبقتها، مع وجود مسافة مع الكلمة التي تليها.
+      </div>
+      <div class="summary-point"><strong>مواضع كتابة الفاصلة:</strong>
+       <ul style="margin-top: 10px; padding-right: 20px;">
+        <li>بين الجمل القصيرة المترابطة بالمعنى</li>
+        <li>بعد المنادى</li>
+        <li>بعد حروف الجواب (نعم، لا، كلا، بلا)</li>
+        <li>بين الأنواع والأقسام</li>
+       </ul>
+      </div>
+     </div>
+    </div><!-- الاختبار التفاعلي -->
+    <div class="section">
+     <div class="section-title"><span class="icon">🎯</span> <span id="quiz-title">اختبر معلوماتك!</span>
+     </div>
+     <div class="quiz-container">
+      <div class="quiz-intro">
+       <p style="font-size: 18px; margin-bottom: 20px;">اختبار تفاعلي لقياس فهمك لاستخدام الفاصلة</p>
+       <div class="score-display"><span style="font-size: 20px; font-weight: bold;">النتيجة: </span> <span id="score" style="font-size: 24px; font-weight: bold; color: #667eea;">0 / 8</span>
+       </div>
+      </div><!-- أسئلة صح وخطأ -->
+      <div class="quiz-section-header"><span class="quiz-section-icon">✓✗</span> <span>القسم الأول: صح أم خطأ</span>
+      </div>
+      <div class="quiz-question" data-answer="true">
+       <div class="question-text"><span class="question-number">1.</span> توضع الفاصلة بعد المنادى
+       </div>
+       <div class="quiz-options"><button class="quiz-btn" data-value="true">✓ صح</button> <button class="quiz-btn" data-value="false">✗ خطأ</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-question" data-answer="false">
+       <div class="question-text"><span class="question-number">2.</span> تكتب الفاصلة بعيدة عن الكلمة التي قبلها
+       </div>
+       <div class="quiz-options"><button class="quiz-btn" data-value="true">✓ صح</button> <button class="quiz-btn" data-value="false">✗ خطأ</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-question" data-answer="true">
+       <div class="question-text"><span class="question-number">3.</span> توضع الفاصلة بين أنواع الشيء وأقسامه
+       </div>
+       <div class="quiz-options"><button class="quiz-btn" data-value="true">✓ صح</button> <button class="quiz-btn" data-value="false">✗ خطأ</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-question" data-answer="true">
+       <div class="question-text"><span class="question-number">4.</span> توضع الفاصلة بعد حروف الجواب مثل (نعم، لا)
+       </div>
+       <div class="quiz-options"><button class="quiz-btn" data-value="true">✓ صح</button> <button class="quiz-btn" data-value="false">✗ خطأ</button>
+       </div>
+       <div class="feedback"></div>
+      </div><!-- أسئلة اختيار متعدد -->
+      <div class="quiz-section-header" style="margin-top: 30px;"><span class="quiz-section-icon">📋</span> <span>القسم الثاني: اختيار من متعدد</span>
+      </div>
+      <div class="quiz-question" data-answer="b">
+       <div class="question-text"><span class="question-number">5.</span> أي من الجمل التالية تستخدم الفاصلة بشكل صحيح؟
+       </div>
+       <div class="quiz-options"><button class="quiz-btn multi" data-value="a">يا أحمد أقبل إليّ</button> <button class="quiz-btn multi" data-value="b">يا أحمد، أقبل إليّ</button> <button class="quiz-btn multi" data-value="c">يا أحمد ، أقبل إليّ</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-question" data-answer="c">
+       <div class="question-text"><span class="question-number">6.</span> متى توضع الفاصلة في الجملة؟
+       </div>
+       <div class="quiz-options"><button class="quiz-btn multi" data-value="a">في نهاية الجملة فقط</button> <button class="quiz-btn multi" data-value="b">في بداية الجملة فقط</button> <button class="quiz-btn multi" data-value="c">بين الجمل القصيرة المترابطة</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-question" data-answer="a">
+       <div class="question-text"><span class="question-number">7.</span> ما هي الكتابة الصحيحة للفاصلة؟
+       </div>
+       <div class="quiz-options"><button class="quiz-btn multi" data-value="a">الكلمة، الكلمة</button> <button class="quiz-btn multi" data-value="b">الكلمة ، الكلمة</button> <button class="quiz-btn multi" data-value="c">الكلمة،الكلمة</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-question" data-answer="b">
+       <div class="question-text"><span class="question-number">8.</span> في أي جملة استخدمت الفاصلة بشكل خاطئ؟
+       </div>
+       <div class="quiz-options"><button class="quiz-btn multi" data-value="a">نعم، أنا مستعد</button> <button class="quiz-btn multi" data-value="b">الطالب، يدرس في المدرسة</button> <button class="quiz-btn multi" data-value="c">الفصول أربعة: صيف، وخريف، وشتاء، وربيع</button>
+       </div>
+       <div class="feedback"></div>
+      </div>
+      <div class="quiz-result" id="quiz-result" style="display: none;">
+       <div class="result-content">
+        <div class="result-icon" id="result-icon">
+         🎉
+        </div>
+        <div class="result-text" id="result-text"></div><button class="reset-btn" id="reset-btn">إعادة الاختبار</button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            main_title: "علامة الترقيم: الفاصلة",
+            definition_title: "ما هي الفاصلة؟",
+            usage_title: "متى نستخدم الفاصلة؟",
+            writing_title: "كيف نكتبها؟",
+            examples_title: "أمثلة تطبيقية",
+            exercise_title: "تمرين تطبيقي",
+            summary_title: "الخلاصة",
+            quiz_title: "اختبر معلوماتك!",
+            primary_color: "#667eea",
+            secondary_color: "#f5576c",
+            background_color: "#f8f9fa",
+            text_color: "#333333",
+            accent_color: "#764ba2",
+            font_family: "Segoe UI",
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            const mainTitle = config.main_title || defaultConfig.main_title;
+            const definitionTitle = config.definition_title || defaultConfig.definition_title;
+            const usageTitle = config.usage_title || defaultConfig.usage_title;
+            const writingTitle = config.writing_title || defaultConfig.writing_title;
+            const examplesTitle = config.examples_title || defaultConfig.examples_title;
+            const exerciseTitle = config.exercise_title || defaultConfig.exercise_title;
+            const summaryTitle = config.summary_title || defaultConfig.summary_title;
+            const quizTitle = config.quiz_title || defaultConfig.quiz_title;
+
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+
+            document.getElementById('main-title').textContent = mainTitle;
+            document.getElementById('definition-title').textContent = definitionTitle;
+            document.getElementById('usage-title').textContent = usageTitle;
+            document.getElementById('writing-title').textContent = writingTitle;
+            document.getElementById('examples-title').textContent = examplesTitle;
+            document.getElementById('exercise-title').textContent = exerciseTitle;
+            document.getElementById('summary-title').textContent = summaryTitle;
+            document.getElementById('quiz-title').textContent = quizTitle;
+
+            document.body.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+            
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.background = backgroundColor;
+                section.style.borderRightColor = primaryColor;
+            });
+
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.style.color = primaryColor;
+            });
+
+            const usageItemTitles = document.querySelectorAll('.usage-item-title');
+            usageItemTitles.forEach(title => {
+                title.style.color = secondaryColor;
+            });
+
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                highlight.style.color = secondaryColor;
+            });
+
+            document.body.style.color = textColor;
+
+            const baseFontStack = 'Tahoma, Geneva, Verdana, sans-serif';
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+            document.querySelector('.header h1').style.fontSize = `${baseSize * 2.625}px`;
+            document.querySelectorAll('.section-title').forEach(el => {
+                el.style.fontSize = `${baseSize * 1.75}px`;
+            });
+            document.querySelector('.definition-box').style.fontSize = `${baseSize * 1.25}px`;
+            document.querySelectorAll('.usage-item-title').forEach(el => {
+                el.style.fontSize = `${baseSize * 1.25}px`;
+            });
+            document.querySelectorAll('.example').forEach(el => {
+                el.style.fontSize = `${baseSize * 1.125}px`;
+            });
+            document.querySelectorAll('.exercise-question').forEach(el => {
+                el.style.fontSize = `${baseSize * 1.125}px`;
+            });
+            document.querySelector('.summary-box').style.fontSize = `${baseSize * 1.125}px`;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            window.elementSdk.setConfig({ accent_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["definition_title", config.definition_title || defaultConfig.definition_title],
+                ["usage_title", config.usage_title || defaultConfig.usage_title],
+                ["writing_title", config.writing_title || defaultConfig.writing_title],
+                ["examples_title", config.examples_title || defaultConfig.examples_title],
+                ["exercise_title", config.exercise_title || defaultConfig.exercise_title],
+                ["summary_title", config.summary_title || defaultConfig.summary_title],
+                ["quiz_title", config.quiz_title || defaultConfig.quiz_title]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        document.querySelectorAll('.exercise-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // Quiz functionality
+        let score = 0;
+        let totalQuestions = 8;
+        let answeredQuestions = 0;
+
+        function updateScore() {
+            document.getElementById('score').textContent = `${score} / ${totalQuestions}`;
+        }
+
+        function checkAllAnswered() {
+            if (answeredQuestions === totalQuestions) {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const resultDiv = document.getElementById('quiz-result');
+            const resultIcon = document.getElementById('result-icon');
+            const resultText = document.getElementById('result-text');
+            
+            const percentage = (score / totalQuestions) * 100;
+            
+            if (percentage === 100) {
+                resultIcon.textContent = '🎉';
+                resultText.innerHTML = `ممتاز! حصلت على العلامة الكاملة!<br>${score} من ${totalQuestions}`;
+            } else if (percentage >= 75) {
+                resultIcon.textContent = '👏';
+                resultText.innerHTML = `أحسنت! أداء رائع!<br>${score} من ${totalQuestions}`;
+            } else if (percentage >= 50) {
+                resultIcon.textContent = '👍';
+                resultText.innerHTML = `جيد! يمكنك التحسن أكثر<br>${score} من ${totalQuestions}`;
+            } else {
+                resultIcon.textContent = '📚';
+                resultText.innerHTML = `حاول مرة أخرى! راجع الدرس<br>${score} من ${totalQuestions}`;
+            }
+            
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            score = 0;
+            answeredQuestions = 0;
+            updateScore();
+            
+            document.querySelectorAll('.quiz-question').forEach(question => {
+                const buttons = question.querySelectorAll('.quiz-btn');
+                buttons.forEach(btn => {
+                    btn.classList.remove('correct', 'incorrect', 'selected');
+                    btn.disabled = false;
+                });
+                
+                const feedback = question.querySelector('.feedback');
+                feedback.classList.remove('show', 'correct', 'incorrect');
+                feedback.textContent = '';
+            });
+            
+            document.getElementById('quiz-result').style.display = 'none';
+        }
+
+        document.querySelectorAll('.quiz-question').forEach(question => {
+            const correctAnswer = question.dataset.answer;
+            const buttons = question.querySelectorAll('.quiz-btn');
+            const feedback = question.querySelector('.feedback');
+            let answered = false;
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (answered) return;
+                    
+                    answered = true;
+                    answeredQuestions++;
+                    
+                    const userAnswer = this.dataset.value;
+                    const isCorrect = userAnswer === correctAnswer;
+                    
+                    buttons.forEach(btn => btn.disabled = true);
+                    
+                    if (isCorrect) {
+                        this.classList.add('correct');
+                        feedback.classList.add('show', 'correct');
+                        feedback.textContent = '✓ إجابة صحيحة! أحسنت';
+                        score++;
+                    } else {
+                        this.classList.add('incorrect');
+                        feedback.classList.add('show', 'incorrect');
+                        feedback.textContent = '✗ إجابة خاطئة. حاول مراجعة الدرس';
+                        
+                        buttons.forEach(btn => {
+                            if (btn.dataset.value === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    }
+                    
+                    updateScore();
+                    checkAllAnswered();
+                });
+            });
+        });
+
+        document.getElementById('reset-btn').addEventListener('click', resetQuiz);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99b3e029d2b6d1f0',t:'MTc2MjU5MjM4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
